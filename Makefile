@@ -1,3 +1,6 @@
+spring.zip : spring screenshot.png readme.txt
+	zip $@ $^
+
 spring : dropper.sh spring.py.xz
 	cat $^ > $@
 	chmod +x $@

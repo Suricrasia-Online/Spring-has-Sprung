@@ -1,4 +1,4 @@
-clutter : dropper.sh clutter.py.xz
+spring : dropper.sh spring.py.xz
 	cat $^ > $@
 	chmod +x $@
 	wc -c $@
@@ -7,7 +7,7 @@ shader.frag.min : shader.frag
 	mono ./shader_minifier.exe $< -o $@ --format none
 	sed -i 's/\([0-9]\+\)\.\([^0-9]\)/\1\2/g' $@
 
-clutter.py.xz : clutter.py shader.frag.min Makefile
+spring.py.xz : spring.py shader.frag.min Makefile
 	cat $< | head -c -1 > $<.m1
 	awk 'BEGIN{getline l < "shader.frag.min"}/___MY_SHADER___/{gsub("___MY_SHADER___",l)}1' $<.m1 > $<.m2
 	mv $<.m2 $<.m1
@@ -17,4 +17,4 @@ clutter.py.xz : clutter.py shader.frag.min Makefile
 .PHONY: clean
 
 clean :
-	rm *.xz clutter
+	rm *.xz spring

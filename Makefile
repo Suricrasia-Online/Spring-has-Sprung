@@ -5,6 +5,7 @@ clutter : dropper.sh clutter.py.xz
 
 shader.frag.min : shader.frag
 	mono ./shader_minifier.exe $< -o $@ --format none
+	sed -i 's/\([0-9]\+\)\.\([^0-9]\)/\1\2/g' $@
 
 clutter.py.xz : clutter.py shader.frag.min
 	cat $< | head -c -1 > $<.m1

@@ -7,8 +7,6 @@ void main() {
         asin(sin(atan(normalize(cameraOrigin).z/length(normalize(cameraOrigin).xy))*9.0+atan(normalize(cameraOrigin).y/normalize(cameraOrigin).x)))/9.0 //distance to coils on surface of sphere
         ,length(cameraOrigin)-1.0)) //distance to surface of sphere
         -0.05)*cameraDirection;
-        cogl_color_out = 
-        vec4(sin((sin(length(cameraOrigin)*35)+1.4)*(cameraOrigin*0.4+.6)),1.0)
-        ;
     }
+    cogl_color_out = vec4(sin((sin(length(cameraOrigin)*35)+1.4)*(cameraOrigin*0.4+.6)),1.0);
 }

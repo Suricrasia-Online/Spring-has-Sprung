@@ -15,7 +15,6 @@ spring.py.gz : spring.py shader.frag.min Makefile
 	awk 'BEGIN{getline l < "shader.frag.min"}/___MY_SHADER___/{gsub("___MY_SHADER___",l)}1' $<.m1 > $<.m2
 	mv $<.m2 $<.m1
 	zopfli --i1000 -c $<.m1 > $@
-	truncate -s -9 $@
 	rm $<.m1
 
 .PHONY: clean

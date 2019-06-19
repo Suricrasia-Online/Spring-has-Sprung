@@ -1,4 +1,5 @@
 void main() {
+cogl_color_out*=0.0;
 	for (float j=0;j<4;j++){
 	for (float k=0;k<4;k++){
     vec3 cameraOrigin = vec3(16.0, 0.0, 4.0);
@@ -10,7 +11,7 @@ void main() {
         ,length(cameraOrigin)-1.0,0)) //distance to surface of sphere
         -0.05);
     }
-    cogl_color_out.xyz += clamp(sin((sin(length(cameraOrigin)*35)+1.4)*(cameraOrigin*0.4+.6)),0,1)/16;
+    if(length(cameraOrigin)<2.0)cogl_color_out.xyz += sin((sin(length(cameraOrigin)*35)+1.4)*(cameraOrigin*0.4+.6))/16;
   }
 }
 }

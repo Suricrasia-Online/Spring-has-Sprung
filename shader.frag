@@ -1,7 +1,7 @@
 void main() {
 cogl_color_out*=0.0;
-	for (float j=0;++j<4;){
-	for (float k=0;++k<4;){
+	for (float j=0;++j<5;){
+	for (float k=0;++k<5;){
     vec3 cameraOrigin = vec3(16.0, 0.0, 4.0);
     vec3 cameraDirection=normalize(cameraOrigin+cameraOrigin.xyx*(cogl_tex_coord_in[0]*2.0-1.0+0.001*j).x*0.08 + cameraOrigin.zxy*cameraOrigin.yxy*(cogl_tex_coord_in[0]*2.0-1.0+0.001*k).y*0.004);
 
@@ -11,7 +11,7 @@ cogl_color_out*=0.0;
         ,length(cameraOrigin)-1.0,0)) //distance to surface of sphere
         -0.05);
     }
-    if(length(cameraOrigin)<4)cogl_color_out.xyz+=sin((sin(length(cameraOrigin)*35)+1.4)*(cameraOrigin*0.4+.6))/16;
+    if(length(cameraOrigin)<2)cogl_color_out.xyz+=sin((sin(length(cameraOrigin)*35)+1.4)*(cameraOrigin*0.4+.6))/16;
   }
 }
 }

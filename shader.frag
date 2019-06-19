@@ -1,8 +1,6 @@
 void main() {
-    vec4 uv = cogl_tex_coord_in[0]*2.0-1.0;
-
     vec3 cameraOrigin = vec3(16.0, 0.0, 4.0);
-    vec3 cameraDirection=normalize(cameraOrigin+cameraOrigin.xyx*uv.x*0.08 + cameraOrigin.zxy*cameraOrigin.yxy*uv.y*0.004);
+    vec3 cameraDirection=normalize(cameraOrigin+cameraOrigin.xyx*(cogl_tex_coord_in[0]*2.0-1.0).x*0.08 + cameraOrigin.zxy*cameraOrigin.yxy*(cogl_tex_coord_in[0]*2.0-1.0).y*0.004);
 
     for (int i = 0; i < 1000; i++) {
         cameraOrigin -= (length(vec2(

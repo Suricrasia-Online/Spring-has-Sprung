@@ -7,7 +7,7 @@ cogl_color_out*=0.0;
 
     for (cogl_color_out.w = 0; ++cogl_color_out.w < 300;) {
         cameraOrigin=cameraOrigin-cameraDirection*(length(vec3(
-        asin(sin(atan(normalize(cameraOrigin).z/length(normalize(cameraOrigin).xy))*9.0+atan(normalize(cameraOrigin).y/normalize(cameraOrigin).x)))/9.0 //distance to coils on surface of sphere
+        asin(sin(-acos(normalize(cameraOrigin).z)*9.0+atan(normalize(cameraOrigin).y/normalize(cameraOrigin).x)))/9.0 //distance to coils on surface of sphere
         ,length(cameraOrigin)-1.0,0)) //distance to surface of sphere
         -0.05);
     }

@@ -1,4 +1,4 @@
-spring
+spring_*
 shader.frag.min
-spring.py.xz
-spring.py.gz
+spring.py.*
+spring.zip

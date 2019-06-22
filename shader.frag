@@ -7,7 +7,7 @@ void main() {
 
             for ( cogl_color_out.w = 0. ; cogl_color_out.w++ < 3e2 ; )
                 C -= D* ( length( vec2( asin(sin(atan(C.y,C.x)
-                                                 -acos(C.z/length(C))*9.))/9.,
+                                                 -acos(normalize(C).z)*9.))/9.,
                                         length(C)-1. ) )
                           -.05 );
 

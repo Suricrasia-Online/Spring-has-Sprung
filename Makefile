@@ -4,7 +4,11 @@ spring.zip : spring_linux spring_mac screenshot.png readme.txt
 spring_% : dropper.sh spring.py.shader.%.gz
 	cat $^ > $@
 	chmod +x $@
+	truncate --size=-9 $@
 	wc -c $@
+
+dropper.sh : build_dropper.sh
+	./build_dropper.sh
 
 shader.frag.min : shader.frag
 	mono ./shader_minifier.exe $< -o $@ --format none
@@ -21,7 +25,7 @@ spring.py.shader.linux : spring.py.shader
 	sed 's/___EXT___/so.0/' $< > $@
 
 %.gz : %
-	zopfli --i1000 -c $< > $@
+	zopfli --i1000 -c $< | tail -c +11 > $@
 
 .PHONY: clean
 

@@ -1,15 +1,9 @@
 spring.zip : spring_linux spring_mac screenshot.png readme.txt
 	zip $@ $^
 
-spring_linux : dropper.sh spring.py.shader.linux.gz
+spring_% : dropper.sh spring.py.shader.%.gz
 	cat $^ > $@
 	chmod +x $@
-	wc -c $@
-
-spring_mac : dropper.sh spring.py.shader.mac.gz
-	cat $^ > $@
-	chmod +x $@
-	truncate --size=-1 $@
 	wc -c $@
 
 shader.frag.min : shader.frag
